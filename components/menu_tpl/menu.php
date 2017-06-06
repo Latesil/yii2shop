@@ -1,7 +1,7 @@
 <div class="panel-heading">
     <h4 class="panel-title">
         <?php if( isset($category['childs']) ): ?>
-            <a data-toggle="collapse" data-parent="#accordian" href="<?= '#' . strtolower($category['name']) ?>">
+            <a data-toggle="collapse" data-parent="#accordian" href="<?= yii\helpers\Url::home() . '#' . strtolower($category['name']) ?>">
         <?php else: ?>
                 <a href="<?= \yii\helpers\Url::to(['category/view', 'id' => $category['id'] ]) ?>">
         <?php endif; ?>

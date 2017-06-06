@@ -55,7 +55,7 @@ use yii\helpers\Html;
 
                         <div class="col-sm-9 padding-right">
                                 <div class="features_items"><!--features_items-->
-                                        <h2 class="title text-center">You searched: <?php isset($_GET['q']) ? Html::encode($q) : 'Yarrrr' ?></h2>
+                                        <h2 class="title text-center">You searched: <?= Html::encode($q) ?></h2>
                                         <?php $i = 0; if( !empty($products) ): ?>
                                             <?php foreach ($products as $product): ?>
                                                 <div class="col-sm-4">
@@ -65,7 +65,7 @@ use yii\helpers\Html;
                                                                 <?= Html::img("@web/images/products/{$product->img}", ['alt' => $product->name ]) ?>
                                                                 <h2>$<?= $product->price ?></h2>
                                                                 <p><a href="<?= yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>"><?= $product->name ?></a></p>
-                                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                                <a href="#" data-id="<?= $product->id ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                                             </div>
                                                             <?php if ( $product->new ): ?>
                                                                 <?= Html::img("@web/images/home/new.png", ['alt' => 'Новинка', 'class' => 'new' ]) ?>
